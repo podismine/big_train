@@ -1,0 +1,33 @@
+network:
+  mm: byol+clf+mse
+  feature_dim: 1024
+  depth: 16
+  heads: 10
+  dim_feedforward: 3096
+  clf_mask: 5
+  mse_mask: 5
+
+saving:
+  log_dir: logs/log_RQ-ablation_adhd_large_lambda5
+  checkpoint_dir: checkpoints/checkpoint_RQ-ablation_adhd_large_lambda5
+  n_epochs: 100
+
+trainer:
+  batch_size: 64
+  m: 0.996 # momentum update
+  max_epochs: 10000
+  num_workers: 8
+  acc_lambda: 0.1
+  mse_lambda: 5
+  warmup_epochs: 10
+
+optimizer:
+  lr: 0.0003
+  weight_decay: 0.00005
+
+data:
+  path: /userhome/timeinvariant/run4_adhd/
+  mask_way: mask
+  time_mask: 40
+  time_len: 30
+  

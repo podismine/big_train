@@ -1,0 +1,33 @@
+network:
+  mm: byol+clf+mse
+  feature_dim: 1024
+  depth: 16
+  heads: 10
+  dim_feedforward: 3096
+  clf_mask: 10
+  mse_mask: 5
+
+saving:
+  log_dir: logs/log_RQ-params_abide_maskper40
+  checkpoint_dir: checkpoints/checkpoint_RQ-params_abide_maskper40
+  n_epochs: 100
+
+trainer:
+  batch_size: 64
+  m: 0.996 # momentum update
+  max_epochs: 10000
+  num_workers: 8
+  acc_lambda: 0.1
+  mse_lambda: 10
+  warmup_epochs: 10
+
+optimizer:
+  lr: 0.0003
+  weight_decay: 0.00005
+
+data:
+  path: /userhome/run1_abide1_train/
+  mask_way: mask_per
+  time_mask: 40
+  time_len: 30
+  
